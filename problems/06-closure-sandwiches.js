@@ -15,9 +15,26 @@ Another Sandwich:
 let sandwich2 = sandwichMaker(); // => returns a function
 sandwich2("pb") // => "One sandwich with tomato and pb"
 
+In this code, the sandwichMaker() function creates a closure by returning an inner function that can access
+and modify the ingredients array in the outer function's scope. Each time you call the inner function (e.g., sandwich() or sandwich2()),
+it will add the provided ingredient to the ingredients array and return the updated sandwich description using join() to concatenate the ingredients with "and" between them.
+
+
+
+
+
 ***********************************************************************/
 
 // Your code here
+function sandwichMaker() {
+  let ingredients = ["tomato"];
+ return function(ingredient){
+ingredients.push(ingredient)
+const sandwichDescription = "One sandwich with " + ingredients.join(" and ");
+return sandwichDescription;
+};
+}
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
